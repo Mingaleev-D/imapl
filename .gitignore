@@ -1,0 +1,50 @@
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+
+# 1. Сборка и кэши (Build & Caches)
+**/build/
+.gradle/
+.kotlin/
+captures/
+.externalNativeBuild/
+.cxx/
+
+# 2. Артефакты компиляции (Compiled files)
+*.apk
+*.ap_
+*.aab
+*.dex
+*.class
+
+# 3. Локальные конфигурации и безопасность (Local config & Secrets)
+local.properties
+*.jks
+*.keystore
+# Файлы с секретами API (если выносятся в отдельный файл)
+# secrets.properties
+
+# 4. Среда разработки (IntelliJ / Android Studio)
+*.iml
+.idea/*
+# Исключения (разрешаем трекинг общих командных настроек)
+!.idea/vcs.xml
+!.idea/codeStyles/
+!.idea/dictionaries/
+!.idea/runConfigurations/
+
+# 5. Системные файлы (OS-specific)
+.DS_Store
+Thumbs.db
