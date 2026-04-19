@@ -29,7 +29,7 @@ class MainActivity : ComponentActivity() {
                 val viewModel = hiltViewModel<HomeViewModel>()
 
                 HomeScreen(
-                    imeges = viewModel.images,
+                    images = viewModel.images,
                 )
             }
         }

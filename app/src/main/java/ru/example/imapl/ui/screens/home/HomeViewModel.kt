@@ -8,6 +8,8 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import ru.example.imapl.data.remote.UnsplashApiService
+import ru.example.imapl.domain.model.UnsplashImage
+import ru.example.imapl.domain.model.toUnsplashDomain
 import javax.inject.Inject
 
 @HiltViewModel
@@ -15,7 +17,8 @@ class HomeViewModel @Inject constructor(
     private val apiService: UnsplashApiService,
 ) : ViewModel() {
 
-    var images: String by mutableStateOf("")
+    var images: List<UnsplashImage> by mutableStateOf(emptyList())
+        private set
 
     init {
         getImages()
@@ -23,7 +26,7 @@ class HomeViewModel @Inject constructor(
 
     private fun getImages() {
         viewModelScope.launch {
-            images = apiService.getEditFeedImg()
+            images = apiService.getEditFeedImg().map { it.toUnsplashDomain() }
         }
     }
 }
