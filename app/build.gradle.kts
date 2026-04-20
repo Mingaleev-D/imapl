@@ -139,4 +139,5 @@ dependencies {
 
 
     implementation("com.github.skydoves:cloudy:0.1.2")
+    implementation("androidx.compose.material:material-icons-extended:1.7.8")
 }

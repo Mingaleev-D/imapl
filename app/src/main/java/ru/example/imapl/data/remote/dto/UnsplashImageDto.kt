@@ -5,10 +5,10 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class UnsplashImageDto(
-    val id: String,
-    val description: String?,
-    val height: Int,
-    val width: Int,
+    val id: String = "",
+    val description: String? = null,
+    val height: Int = 0,
+    val width: Int = 0,
     val urls: UrlsDto,
     val user: UserDto,
 )
@@ -33,27 +33,26 @@ data class UnsplashImagesSearchResult(
 
 @Serializable
 data class UserDto(
-    val links: UserLinksDto,
-    val name: String,
+    val links: UserLinksDto? = null,
+    val name: String = "",
     @SerialName("profile_image")
-    val profileImage: ProfileImageDto,
-    val username: String
+    val profileImage: ProfileImageDto? = null,
+    val username: String = ""
 )
 
 @Serializable
 data class ProfileImageDto(
-    val small: String
+    val small: String? = null
 )
 
 @Serializable
 data class UserLinksDto(
-    val html: String,
-    val likes: String,
-    val photos: String,
-    val portfolio: String,
-    val self: String
+    val html: String? = null,
+    val likes: String? = null,
+    val photos: String? = null,
+    val portfolio: String? = null, // Добавлено значение по умолчанию
+    val self: String? = null
 )
-
 
 /*
 [
