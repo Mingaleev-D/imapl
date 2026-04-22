@@ -16,7 +16,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
+import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
+import ru.example.imapl.core.navigation.NavGraphSetup
 import ru.example.imapl.ui.screens.home.HomeScreen
 import ru.example.imapl.ui.screens.home.HomeViewModel
 import ru.example.imapl.ui.theme.ImApLTheme
@@ -31,21 +33,19 @@ class MainActivity : ComponentActivity() {
         setContent {
             ImApLTheme {
 
-                val viewModel = hiltViewModel<HomeViewModel>()
                 val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
+                val navController = rememberNavController()
 
                 Scaffold(
                     modifier = Modifier
                         .fillMaxSize()
                         .nestedScroll(scrollBehavior.nestedScrollConnection),
                 ) { paddingValue ->
-                    HomeScreen(
+
+                    NavGraphSetup(
                         modifier = Modifier.padding(paddingValues = paddingValue),
+                        navController = navController,
                         scrollBehavior = scrollBehavior,
-                        images = viewModel.images,
-                        onImageClick = {},
-                        onSettingsClick = {},
-                        onFabClick = {},
                     )
                 }
 

@@ -1,4 +1,4 @@
-package ru.example.imapl.ui.screens.home.components
+package ru.example.imapl.ui.screens.components
 
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.aspectRatio

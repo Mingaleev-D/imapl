@@ -1,4 +1,4 @@
-package ru.example.imapl.ui.screens.home.components
+package ru.example.imapl.ui.screens.components
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search

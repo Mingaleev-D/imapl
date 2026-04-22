@@ -12,6 +12,8 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import ru.example.imapl.core.utils.Constants
 import ru.example.imapl.data.remote.UnsplashApiService
+import ru.example.imapl.data.repository.ImageRepositoryImpl
+import ru.example.imapl.domain.repository.ImageRepository
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
@@ -72,5 +74,11 @@ object AppModule {
     @Singleton
     fun provideApiService(retrofit: Retrofit): UnsplashApiService {
         return retrofit.create(UnsplashApiService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideImageRepository(apiService: UnsplashApiService): ImageRepository {
+        return ImageRepositoryImpl(apiService)
     }
 }
