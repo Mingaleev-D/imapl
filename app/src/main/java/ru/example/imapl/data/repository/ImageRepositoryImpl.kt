@@ -12,4 +12,8 @@ class ImageRepositoryImpl(
     override suspend fun getEditorFeedImages(): List<UnsplashImage> {
         return apiService.getEditFeedImg().map { it.toUnsplashDomain() }
     }
+
+    override suspend fun getImage(imageId: String): UnsplashImage {
+        return apiService.getImage(imageId).toUnsplashDomain()
+    }
 }
